@@ -383,7 +383,10 @@ of reversed playlists.
          (item (nth n youtube-dl-items)))
     (when item
       (let ((url (concat "https://youtu.be/" (youtube-dl-item-id item))))
-        (x-set-selection 'PRIMARY url)
+        (if (fboundp 'gui-set-selection)
+            (gui-set-selection nil url)     ; >= Emacs 25
+          (with-no-warnings
+           (x-set-selection 'PRIMARY url))) ; <= Emacs 24
         (message "Yanked %s" url)))))
 
 (defun youtube-dl-list-kill ()
