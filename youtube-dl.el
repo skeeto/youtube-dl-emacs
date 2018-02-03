@@ -37,25 +37,30 @@
 
 (defcustom youtube-dl-directory "~"
   "Directory in which to run youtube-dl."
-  :group 'youtube-dl)
+  :group 'youtube-dl
+  :type 'directory)
 
 (defcustom youtube-dl-program "youtube-dl"
   "The name of the program invoked for downloading YouTube videos."
-  :group 'youtube-dl)
+  :group 'youtube-dl
+  :type 'string)
 
 (defcustom youtube-dl-arguments
   '("--no-mtime" "--restrict-filenames" "--format" "best")
   "Arguments to be send to youtube-dl.
 Instead of --rate-limit use `youtube-dl-slow-rate'."
-  :group 'youtube-dl)
+  :group 'youtube-dl
+  :type '(repeat string))
 
 (defcustom youtube-dl-max-failures 8
   "Maximum number of retries for a single video."
-  :group 'youtube-dl)
+  :group 'youtube-dl
+  :type 'integer)
 
 (defcustom youtube-dl-slow-rate "2M"
   "Download speed for \"slow\" items (argument for --rate-limit)."
-  :group 'youtube-dl)
+  :group 'youtube-dl
+  :type 'string)
 
 (defface youtube-dl-active
   '((t :inherit font-lock-function-name-face))
