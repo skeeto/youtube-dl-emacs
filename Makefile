@@ -7,7 +7,7 @@ simulate: youtube-dl.elc
 	$(EMACS) -Q -L . -l tests/youtube-dl-simulate.el
 
 clean:
-	rm -f youtube-dl.elc simulation.db
+	rm -f youtube-dl.elc simulation.db simulation.db.tmp
 
 .SUFFIXES: .el .elc
 .el.elc:

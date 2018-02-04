@@ -19,7 +19,8 @@ id="$1"
 # Persist download state across runs
 put() {
     if grep -q -- "$id" "$dbfile" 2>/dev/null; then
-        sed -i "s/^$id.*/$id $1/" "$dbfile"
+        sed -i.tmp "s/^$id.*/$id $1/" "$dbfile"
+        rm -f "$dbfile.tmp"
     else
         printf "%s %s\n" "$id" "$1" >> "$dbfile"
     fi
