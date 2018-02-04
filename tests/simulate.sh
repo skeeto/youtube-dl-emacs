@@ -18,14 +18,14 @@ id="$1"
 
 # Persist download state across runs
 put() {
-    if grep -q "$id" "$dbfile" 2>/dev/null; then
+    if grep -q -- "$id" "$dbfile" 2>/dev/null; then
         sed -i "s/^$id.*/$id $1/" "$dbfile"
     else
         printf "%s %s\n" "$id" "$1" >> "$dbfile"
     fi
 }
 get () {
-    if grep -q "$id" "$dbfile" 2>/dev/null; then
+    if grep -q -- "$id" "$dbfile" 2>/dev/null; then
         awk "/^$id/{print \$2}" "$dbfile"
     else
         echo 0
