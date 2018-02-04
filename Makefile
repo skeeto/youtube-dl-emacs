@@ -3,8 +3,11 @@ EMACS = emacs
 
 youtube-dl.elc: youtube-dl.el
 
+simulate: youtube-dl.elc
+	$(EMACS) -Q -L . -l tests/youtube-dl-simulate.el
+
 clean:
-	rm -f youtube-dl.elc
+	rm -f youtube-dl.elc simulation.db
 
 .SUFFIXES: .el .elc
 .el.elc:
