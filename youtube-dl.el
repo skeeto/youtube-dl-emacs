@@ -90,7 +90,8 @@ Instead of --rate-limit use `youtube-dl-slow-rate'."
 (defvar-local youtube-dl--log-item nil
   "Item currently being displayed in the log buffer.")
 
-(cl-defstruct (youtube-dl-item (:constructor youtube-dl-item--create))
+(cl-defstruct (youtube-dl-item (:constructor youtube-dl-item--create)
+                               (:copier nil))
   "Represents a single video to be downloaded with youtube-dl."
   id           ; YouTube video ID (string)
   directory    ; Working directory for youtube-dl (string or nil)
