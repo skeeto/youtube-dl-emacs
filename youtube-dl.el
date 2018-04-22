@@ -309,7 +309,10 @@ of reversed playlists.
 
 :slow BOOL -- Start all download entries in slow mode."
   (interactive
-   (list (read-from-minibuffer "URL: " (funcall interprogram-paste-function))))
+   (list (read-from-minibuffer
+          "URL: "
+          (when interprogram-paste-function
+            (funcall interprogram-paste-function)))))
   (message "Fetching playlist ...")
   (let ((videos (youtube-dl--playlist-list url)))
     (if (null videos)
