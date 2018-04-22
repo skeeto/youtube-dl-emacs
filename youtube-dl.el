@@ -241,7 +241,8 @@ display purposes anyway."
   (interactive
    (list (read-from-minibuffer
           "URL: " (or (thing-at-point 'url)
-                      (funcall interprogram-paste-function)))))
+                      (when interprogram-paste-function
+                        (funcall interprogram-paste-function))))))
   (let* ((id (youtube-dl--id-from-url url))
          (full-dir (expand-file-name (or directory "") youtube-dl-directory))
          (item (youtube-dl-item--create :id id
