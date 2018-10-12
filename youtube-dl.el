@@ -46,7 +46,7 @@
   :type 'string)
 
 (defcustom youtube-dl-arguments
-  '("--no-mtime" "--restrict-filenames" "--format" "best")
+  '("--no-mtime" "--restrict-filenames")
   "Arguments to be send to youtube-dl.
 Instead of --rate-limit use `youtube-dl-slow-rate'."
   :group 'youtube-dl
