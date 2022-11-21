@@ -266,7 +266,7 @@ display purposes anyway."
                                "--dump-json"
                                "--flat-playlist"
                                playlist))
-      (setf (point) (point-min))
+      (goto-char (point-min))
       (cl-loop with json-object-type = 'plist
                for index upfrom 1
                for video = (ignore-errors (json-read))
@@ -345,7 +345,7 @@ of reversed playlists.
     (let ((save-point (point))
           (window (get-buffer-window (current-buffer))))
       (youtube-dl--fill-listing)
-      (setf (point) save-point)
+      (goto-char save-point)
       (when window
         (set-window-point window save-point))
       (when hl-line-mode
