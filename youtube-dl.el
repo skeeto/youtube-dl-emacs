@@ -231,7 +231,7 @@ display purposes anyway."
   "Return the 11-character video ID for URL."
   (save-match-data
     (when (string-match
-           "\\(?:\\.be/\\|v=\\|v%3D\\|^\\)\\([-_a-zA-Z0-9]\\{11\\}\\)" url)
+           "\\(?:\\.be/\\|v=\\|v%3D\\|/shorts/\\|^\\)\\([-_a-zA-Z0-9]\\{11\\}\\)" url)
       (match-string 1 url))))
 
 ;;;###autoload
